@@ -12,9 +12,10 @@ export const DropDownContainer = styled.div<{ spacing?: string }>`
 export const PetDirectoryContainer = styled.div`
   display: flex;
   height: 300px;
-  border-radius: 20px;
   @media (max-width: ${breakpoints.mobile}) {
-    height: 200px;
+    height: 250px;
+    display: inline-block;
+    overflow: hidden;
   }
 `;
 
@@ -47,10 +48,10 @@ export const DirectoryDetail = styled.div`
 `;
 
 export const MobileDetails = styled.div`
-display: none;
-@media (max-width: ${breakpoints.mobile}) {
-  display: block;
-}
+  display: none;
+  @media (max-width: ${breakpoints.mobile}) {
+    display: block;
+  }
 `;
 
 export const Details = styled.div``;
@@ -58,18 +59,39 @@ export const Details = styled.div``;
 export const CategoryContainer = styled.div`
   ${flexMixins?.flexRowBetween};
   margin-top: 16px;
+  @media (max-width: ${breakpoints.mobile}) {
+    overflow-x: scroll;
+    margin-left: 16px;
+  }
 `;
 
-export const Category = styled.div`
+export const Category = styled.div<{ totalCategory: number }>`
   border-radius: 10px;
-  width: 18%;
+  min-width: ${({ totalCategory }) => 100 / totalCategory}%;
   height: 80px;
   ${flexMixins?.flexRowCenter};
   background: ${theme.colors.textGrayLight};
   align-items: baseline;
+  margin-right: 10px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-shrink: 0;
+    min-width: ${100 / 2}%;
+  }
 `;
 
 export const CategoryImage = styled.div`
   position: relative;
   bottom: 15px;
+`;
+
+export const DirectoryDetailMobile = styled.div`
+  display: none;
+  @media (max-width: ${breakpoints.mobile}) {
+    background: ${theme.colors.secondary};
+    color: ${theme.colors.primary};
+    ${flexMixins.flexRowBetween};
+    width: 100%;
+    height: 60px;
+  }
 `;
