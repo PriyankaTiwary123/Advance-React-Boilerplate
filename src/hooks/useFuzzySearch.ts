@@ -1,5 +1,3 @@
-// useFuzzySearch.ts
-
 import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -54,19 +52,23 @@ export const useFuzzySearch = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setInputValue(event.target.value));
-    updateFilteredPets(); // Update filteredPets when input value changes
+    updateFilteredPets(event.target.value); // Update filteredPets when input value changes
   };
 
-  const updateFilteredPets = async () => {
+  const updateFilteredPets = async (value: string) => {
     try {
-      const response = await fetch(BASE_URL);
-      const data: Pet[] = await response.json();
-      const results = data.filter(
-        (pet: Pet) =>
-          fuzzySearch(pet.name.toLowerCase(), inputValue.toLowerCase()) ||
-          fuzzySearch(pet.species.toLowerCase(), inputValue.toLowerCase())
-      );
-      dispatch(setFilteredPets(results));
+      if (value.trim() === "") {
+        dispatch(setFilteredPets([])); // Clear filtered pets if the input value is empty
+      } else {
+        const response = await fetch(BASE_URL);
+        const data: Pet[] = await response.json();
+        const results = data.filter(
+          (pet: Pet) =>
+            fuzzySearch(pet.name.toLowerCase(), value.toLowerCase()) ||
+            fuzzySearch(pet.species.toLowerCase(), value.toLowerCase())
+        );
+        dispatch(setFilteredPets(results));
+      }
     } catch (error) {
       dispatch(setError("Error fetching pets"));
     }
