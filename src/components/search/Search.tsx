@@ -1,5 +1,5 @@
 import * as style from "./Search.Styles";
-import { SearchIcon } from "../../../public/icons/Search";
+import { SearchIcon } from "../../public/Icons/SearchIcon";
 import theme from "../../styles/theme";
 
 const Search: React.FC = () => {

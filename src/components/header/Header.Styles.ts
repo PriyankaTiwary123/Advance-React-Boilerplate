@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import breakpoints from "../../constants/breakpoints";
+import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
 
@@ -20,7 +20,7 @@ export const HeaderContainer = styled.header`
 `;
 export const ImageContainer = styled.img`
   margin-left: 30px;
-  
+
   /* Styles specific to mobile */
   @media (max-width: ${breakpoints.mobile}) {
   margin: 20px 0px 0px 16px;
