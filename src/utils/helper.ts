@@ -9,4 +9,18 @@ export const debounce = <T extends (...args: any[]) => void>(
       timeoutId = setTimeout(() => func(...args), delay);
     };
   };
+
+  export const fuzzySearch = (searchTerm: string, input: string) => {
+    let i = 0;
+    let j = 0;
+
+    while (i < searchTerm.length && j < input.length) {
+      if (searchTerm[i] === input[j]) {
+        j++;
+      }
+      i++;
+    }
+
+    return j === input.length;
+  };
   
