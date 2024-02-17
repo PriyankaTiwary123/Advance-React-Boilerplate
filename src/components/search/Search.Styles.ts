@@ -52,11 +52,11 @@ export const FilteredList = styled.ul`
   list-style-type: none;
 `;
 
-export const ListItem = styled.li<{ focusedIndex?: number }>`
+export const ListItem = styled.li<{ focusedindex?: number }>`
   padding: 8px 12px;
   cursor: pointer;
-  background: ${({ focusedIndex }) =>
-    focusedIndex ? theme.colors.textGrayLight : "transparent"};
+  background: ${({ focusedindex }) =>
+    focusedindex ? theme.colors.textGrayLight : "transparent"};
   color: ${theme.colors.textGrayDark};
   border-bottom: 1px solid ${theme.colors.textGray};
   &:last-child {
