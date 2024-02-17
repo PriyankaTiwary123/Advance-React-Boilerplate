@@ -7,7 +7,7 @@ export const AutocompleteContainer = styled.div`
   position: relative;
   display: flex;
   width: 60%;
-  svg{
+  svg {
     position: absolute;
     margin-left: 16px;
   }
@@ -38,24 +38,33 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const FilteredList = styled.div`
+export const FilteredList = styled.ul`
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
   width: 100%;
   max-height: 200px;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: ${theme.colors.primary};
+  padding: 0;
   border: 1px solid ${theme.colors.textGray};
   border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
 `;
 
-export const ListItem = styled.div`
-  padding: 8px 0;
+export const ListItem = styled.li<{ focusedIndex?: number }>`
+  padding: 8px 12px;
+  cursor: pointer;
+  background: ${({ focusedIndex }) =>
+    focusedIndex ? theme.colors.textGrayLight : "transparent"};
+  color: ${theme.colors.textGrayDark};
   border-bottom: 1px solid ${theme.colors.textGray};
   &:last-child {
     border-bottom: none;
   }
+`;
+
+export const HighlightedText = styled.span`
+  font-weight: bold;
+  color: ${theme.colors.textPrimary};
 `;
