@@ -12,14 +12,14 @@ export const ResultsContainer = styled.div`
   }
 `;
 
-export const PetContent = styled.div<{ isMobile?: boolean }>`
+export const PetContent = styled.div<{ ismobile?: boolean }>`
   width: 30%;
   margin: 0px 0px 20px 24px;
   button {
-    margin-top: ${({ isMobile }) =>
-      isMobile ? "0" : "16px"}; /* Adjust margin based on isMobile prop */
-    display: ${({ isMobile }) =>
-      isMobile ? "none" : "inline-block"}; /* Hide button for mobile */
+    margin-top: ${({ ismobile }) =>
+      ismobile ? "0" : "16px"}; /* Adjust margin based on ismobile prop */
+    display: ${({ ismobile }) =>
+      ismobile ? "none" : "inline-block"}; /* Hide button for mobile */
   }
   @media (max-width: ${breakpoints.mobile}) {
     width: 100%;

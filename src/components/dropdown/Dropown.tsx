@@ -9,8 +9,7 @@ interface DropDownProps {
   isMargin: boolean
 }
 
-// Dropdown component
-const Dropdown: React.FC<DropDownProps> = ({ label, isChevron, isMargin }) => {
+const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {

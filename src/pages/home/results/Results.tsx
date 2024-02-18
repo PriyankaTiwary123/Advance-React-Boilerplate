@@ -12,14 +12,14 @@ import * as style from './Results.styles';
 const Results: React.FC = () => {
   const navigate = useNavigate();
 
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [ismobile, setismobile] = useState<boolean>(false);
   const { filteredPets } = useSelector(
     (state: RootState) => state.useFuzzySearch
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= parseInt(breakpoints.mobile));
+      setismobile(window.innerWidth <= parseInt(breakpoints.mobile));
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -35,13 +35,13 @@ const Results: React.FC = () => {
   return (
     <style.ResultsContainer>
       {filteredPets?.map((pet: Pet) => (
-        <style.PetContent key={pet.id} isMobile={isMobile}>
+        <style.PetContent key={pet.id} ismobile={ismobile}>
           <style.PetAvatar
             src={pet.photoUrl}
             alt={pet.name}
           />
           <div>{pet.name}</div>
-          {isMobile ? ( // For mobile
+          {ismobile ? ( // For mobile
             <style.RedirectContainer  onClick={() => redirectToPetDetails(pet.id)}>
               <ArrowRighIcon width={30} height={30} color={theme.colors.primary}/>
             </style.RedirectContainer>

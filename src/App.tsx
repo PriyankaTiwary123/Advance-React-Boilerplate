@@ -11,13 +11,11 @@ function App() {
     <Provider store={store}>
       <Router>
         <Layout>
-          <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               {routes.map((route, index) => (
                 <Route key={index} path={route.path} element={route.element} />
               ))}
             </Routes>
-          </Suspense>
         </Layout>
       </Router>
     </Provider>

@@ -20,6 +20,11 @@ const createHeadingStyles = (fontSize: string) => styled.h1`
   font-size: ${fontSize};
 `;
 
+export const Text = styled.div`
+font-size: 16px;
+font-family: 'Open Sans';
+`
+
 export const H1 = createHeadingStyles('33px');
 export const H2 = createHeadingStyles('28px');
 export const H3 = createHeadingStyles('23px');

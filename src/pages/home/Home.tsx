@@ -1,10 +1,8 @@
 import Dropdown from "../../components/dropdown/Dropown";
 import Search from "../../components/search/Search";
 import { dropdowns } from "../../constant";
-import Categories from "./categories/Categories";
-import PetDirectory from "./petDirectory/PetDirectory";
-import Results from "./results/Results";
 import * as globalStyle from "../../styles/GlobalStyles";
+import { Categories, PetDirectory, Results } from ".";
 import * as style from "./Home.styles";
 
 const Home: React.FC = () => {

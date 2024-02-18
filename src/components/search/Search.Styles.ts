@@ -29,14 +29,14 @@ export const SearchInput = styled.input<{ isShowFilteredList: boolean }>`
   border-radius: ${({ isShowFilteredList }) =>
   isShowFilteredList ? "0px" : "30px"};
   border-top-left-radius: ${({ isShowFilteredList }) =>
-  isShowFilteredList ? "5px" : "30px"}; /* Add this line */
+  isShowFilteredList ? "5px" : "30px"};
   border-top-right-radius: ${({ isShowFilteredList }) =>
-  isShowFilteredList? "5px" : "30px"}; /* Add this line */
+  isShowFilteredList? "5px" : "30px"}; 
   border-bottom: ${({ isShowFilteredList }) =>
   isShowFilteredList ? "none" : `1px solid ${theme.colors.textGray}`};
   outline: none;
   width: 100%;
-`;
+  box-shadow: ${({ isShowFilteredList }) => isShowFilteredList ? `0px 2px 4px ${theme.colors.textGray}` : 'none'};`;
 
 export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
   position: absolute;
@@ -45,18 +45,20 @@ export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
   width: 100%;
   max-height: 200px;
   overflow-y: auto;
+  box-sizing: border-box;
   background-color: ${theme.colors.primary};
   padding: 0;
   border: 1px solid ${({ isShowFilteredList })=> isShowFilteredList ? theme.colors.secondary: theme.colors.primary};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   list-style-type: none;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 export const ListItem = styled.li<{ focusedindex?: boolean }>`
-  padding: 8px 12px;
+  padding: 0px 12px;
   cursor: pointer;
+  line-height: 0.5;
   background: ${({ focusedindex }) =>
     focusedindex ? theme.colors.textGrayLight : "transparent"};
   color: ${theme.colors.textGrayDark};
