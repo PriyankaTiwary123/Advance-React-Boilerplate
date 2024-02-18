@@ -2,7 +2,6 @@ import styled from "styled-components";
 import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
-import { Pet } from "../types/pet";
 
 export const AutocompleteContainer = styled.div`
   position: relative;
@@ -22,24 +21,24 @@ export const SearchInputContainer = styled.div`
   position: relative;
 `;
 
-export const SearchInput = styled.input<{ filteredPets: Pet[] }>`
-  border: 1px solid ${({filteredPets})=> filteredPets.length> 0 ? theme.colors.secondary :theme.colors.textGray};
+export const SearchInput = styled.input<{ isShowFilteredList: boolean }>`
+  border: 1px solid ${({isShowFilteredList})=> isShowFilteredList ? theme.colors.secondary :theme.colors.textGray};
   color: ${theme.colors.textGrayDark};
   padding: 20px 60px;
   font-size: 16px;
-  border-radius: ${({ filteredPets }) =>
-    filteredPets.length > 0 ? "0px" : "30px"};
-  border-top-left-radius: ${({ filteredPets }) =>
-    filteredPets.length > 0 ? "5px" : "30px"}; /* Add this line */
-  border-top-right-radius: ${({ filteredPets }) =>
-    filteredPets.length > 0 ? "5px" : "30px"}; /* Add this line */
-  border-bottom: ${({ filteredPets }) =>
-    filteredPets.length > 0 ? "none" : `1px solid ${theme.colors.textGray}`};
+  border-radius: ${({ isShowFilteredList }) =>
+  isShowFilteredList ? "0px" : "30px"};
+  border-top-left-radius: ${({ isShowFilteredList }) =>
+  isShowFilteredList ? "5px" : "30px"}; /* Add this line */
+  border-top-right-radius: ${({ isShowFilteredList }) =>
+  isShowFilteredList? "5px" : "30px"}; /* Add this line */
+  border-bottom: ${({ isShowFilteredList }) =>
+  isShowFilteredList ? "none" : `1px solid ${theme.colors.textGray}`};
   outline: none;
   width: 100%;
 `;
 
-export const FilteredList = styled.ul<{ filteredPets: Pet[] }>`
+export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
   position: absolute;
   top: calc(100% + (-16px));
   left: 0;
@@ -48,7 +47,7 @@ export const FilteredList = styled.ul<{ filteredPets: Pet[] }>`
   overflow-y: auto;
   background-color: ${theme.colors.primary};
   padding: 0;
-  border: 1px solid ${({ filteredPets })=> filteredPets.length > 0 ? theme.colors.secondary: theme.colors.primary};
+  border: 1px solid ${({ isShowFilteredList })=> isShowFilteredList ? theme.colors.secondary: theme.colors.primary};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   list-style-type: none;

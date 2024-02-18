@@ -52,10 +52,10 @@ const Search: React.FC = () => {
           onKeyDown={handleKeyDown}
           aria-label="Search for Pets"
           autoComplete="off"
-          filteredPets={filteredPets}
+          isShowFilteredList={isShowFilteredList}
         />
         {inputValue && filteredPets.length > 0 && isShowFilteredList && (
-          <style.FilteredList filteredPets={filteredPets}>
+          <style.FilteredList isShowFilteredList={isShowFilteredList}>
             {filteredPets.map((pet: Pet, index: number) => (
               <style.ListItem
                 key={pet.id}
