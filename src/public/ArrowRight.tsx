@@ -16,14 +16,14 @@ export const ArrowRighIcon: React.FC<IconProps> = ({ color, width, height }) => 
         d="M4 12H20"
         stroke={color}
         strokeWidth="2"
-        stroke-linecap="round"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M13 5L20 12L13 19"
         stroke={color}
         strokeWidth="2"
-        stroke-linecap="round"
+        strokeLinecap="round"
         strokeLinejoin="round"
       />
     </svg>

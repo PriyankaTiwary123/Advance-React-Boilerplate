@@ -34,7 +34,7 @@ const Results: React.FC = () => {
 
   return (
     <style.ResultsContainer>
-      {filteredPets?.map((pet: Pet, index: number) => (
+      {filteredPets?.map((pet: Pet) => (
         <style.PetContent key={pet.id} isMobile={isMobile}>
           <style.PetAvatar
             src={pet.photoUrl}

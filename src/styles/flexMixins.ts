@@ -19,6 +19,7 @@ interface FlexMixins {
   flexRowCenter: string;
   flexRowStart: string;
   flexRowBetween: string;
+  flexRowSpaceAround: string;
   flexColumnCenter: string;
 }
 
@@ -50,6 +51,11 @@ const flexMixins: FlexMixins = {
     justify-content: space-between;
     align-items: center;
   `,
+  flexRowSpaceAround: `
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`,
   flexColumnCenter: `
     display: flex;
     flex-direction: column;
