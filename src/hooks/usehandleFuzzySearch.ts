@@ -1,17 +1,31 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   setInputValue,
   setFilteredPets,
+  setPets,
+  setError,
+  setShowFiltered,
 } from "../store/slices/fuzzySearchSlice";
 import { fuzzySearch } from "../utils/helper";
 import { BASE_URL } from "../constant";
 import { Pet } from "../components/types/pet";
-import { useSuggestionClick } from "./useSuggestionClick";
 
 export const useHandleFuzzySearch = () => {
   const dispatch = useDispatch();
-  // const { showFilteredList, setShowFilteredList } = useSuggestionClick();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(BASE_URL);
+        const data = await response.json();
+        dispatch(setPets(data));
+      } catch (error) {
+        dispatch(setError("Error fetching pets"));
+      }
+    };
 
+    fetchData();
+  }, []);
   const updateFilteredPets = async (value: string) => {
     try {
       if (value.trim() === "") {
@@ -35,7 +49,7 @@ export const useHandleFuzzySearch = () => {
     const enteredVal = event.target.value;
     dispatch(setInputValue(enteredVal));
     updateFilteredPets(enteredVal);
-    // setShowFilteredList(true);
+    dispatch(setShowFiltered(true))
   };
 
   return {

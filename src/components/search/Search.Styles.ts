@@ -2,6 +2,7 @@ import styled from "styled-components";
 import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
+import { Pet } from "../types/pet";
 
 export const AutocompleteContainer = styled.div`
   position: relative;
@@ -21,35 +22,37 @@ export const SearchInputContainer = styled.div`
   position: relative;
 `;
 
-export const SearchInput = styled.input`
-  border: 1px solid ${theme.colors.textGray};
+export const SearchInput = styled.input<{ filteredPets: Pet[] }>`
+  border: 1px solid ${({filteredPets})=> filteredPets.length> 0 ? theme.colors.secondary :theme.colors.textGray};
   color: ${theme.colors.textGrayDark};
   padding: 20px 60px;
   font-size: 16px;
-  border-radius: 30px;
+  border-radius: ${({ filteredPets }) =>
+    filteredPets.length > 0 ? "0px" : "30px"};
+  border-top-left-radius: ${({ filteredPets }) =>
+    filteredPets.length > 0 ? "5px" : "30px"}; /* Add this line */
+  border-top-right-radius: ${({ filteredPets }) =>
+    filteredPets.length > 0 ? "5px" : "30px"}; /* Add this line */
+  border-bottom: ${({ filteredPets }) =>
+    filteredPets.length > 0 ? "none" : `1px solid ${theme.colors.textGray}`};
   outline: none;
   width: 100%;
-
-  /* Styles specific to mobile */
-  @media (max-width: ${breakpoints.mobile}) {
-    background-color: ${theme.colors.textGrayLight};
-    border: 1px solid ${theme.colors.textGrayLight};
-    color: ${theme.colors.textGray};
-  }
 `;
 
-export const FilteredList = styled.ul`
+export const FilteredList = styled.ul<{ filteredPets: Pet[] }>`
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + (-16px));
   left: 0;
   width: 100%;
   max-height: 200px;
   overflow-y: auto;
   background-color: ${theme.colors.primary};
   padding: 0;
-  border: 1px solid ${theme.colors.textGray};
-  border-radius: 5px;
+  border: 1px solid ${({ filteredPets })=> filteredPets.length > 0 ? theme.colors.secondary: theme.colors.primary};
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   list-style-type: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
 `;
 
 export const ListItem = styled.li<{ focusedindex?: boolean }>`

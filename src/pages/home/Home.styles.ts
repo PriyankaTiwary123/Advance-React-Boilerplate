@@ -122,10 +122,12 @@ export const ResultsContainer = styled.div`
 
 export const PetContent = styled.div<{ isMobile?: boolean }>`
   width: 30%;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px 24px;
   button {
-    margin-top: ${({ isMobile }) => (isMobile ? "0" : "16px")}; /* Adjust margin based on isMobile prop */
-    display: ${({ isMobile }) => (isMobile ? "none" : "inline-block")}; /* Hide button for mobile */
+    margin-top: ${({ isMobile }) =>
+      isMobile ? "0" : "16px"}; /* Adjust margin based on isMobile prop */
+    display: ${({ isMobile }) =>
+      isMobile ? "none" : "inline-block"}; /* Hide button for mobile */
   }
   @media (max-width: ${breakpoints.mobile}) {
     width: 100%;
@@ -146,7 +148,7 @@ export const PetAvatar = styled.img`
 `;
 
 export const RedirectContainer = styled.div`
-background: ${theme.colors.secondary};
-border-radius: 24px;
-padding: 10px;
-`
+  background: ${theme.colors.secondary};
+  border-radius: 24px;
+  padding: 10px;
+`;

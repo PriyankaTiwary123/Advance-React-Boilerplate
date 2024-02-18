@@ -7,6 +7,7 @@ interface UseFuzzySearchState {
   error: string | null;
   inputValue: string;
   filteredPets: Pet[];
+  isShowFilteredList: boolean
 }
 
 const initialState: UseFuzzySearchState = {
@@ -14,6 +15,7 @@ const initialState: UseFuzzySearchState = {
   error: null,
   inputValue: '',
   filteredPets: [],
+  isShowFilteredList: false
 };
 
 export const useFuzzySearchSlice = createSlice({
@@ -32,8 +34,11 @@ export const useFuzzySearchSlice = createSlice({
     setFilteredPets: (state, action: PayloadAction<Pet[]>) => {
       state.filteredPets = action.payload;
     },
+    setShowFiltered: (state, action: PayloadAction<boolean>)=>{
+      state.isShowFilteredList=action.payload
+    }
   },
 });
 
-export const { setPets, setError, setInputValue, setFilteredPets } = useFuzzySearchSlice.actions;
+export const { setPets, setError, setInputValue, setFilteredPets, setShowFiltered } = useFuzzySearchSlice.actions;
 export default useFuzzySearchSlice.reducer;
