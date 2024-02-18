@@ -5,7 +5,7 @@ import Search from "../../components/search/Search";
 import { dropdowns } from "../../constant";
 import * as globalStyle from "../../styles/GlobalStyles";
 import Categories from "./Categories";
-import * as styles from "./Home.styles";
+import * as style from "./Home.styles";
 import PetDirectory from "./PetDirectory";
 import Results from "./Results";
 
@@ -17,10 +17,10 @@ const Home: React.FC = () => {
   // };
 
   return (
-    <>
+    <style.HomeContainer>
       <globalStyle.H1>Pets</globalStyle.H1>
       <Search />
-      <styles.DropDownContainer spacing="20px">
+      <style.DropDownContainer spacing="20px">
         {dropdowns.map((dropdown) => (
           <Dropdown
             key={dropdown.id}
@@ -29,13 +29,13 @@ const Home: React.FC = () => {
             isMargin={dropdown.isMargin}
           />
         ))}
-      </styles.DropDownContainer>
-       <globalStyle.H3>Results</globalStyle.H3>
-       <Results/>
+      </style.DropDownContainer>
+      <globalStyle.H3>Results</globalStyle.H3>
+      <Results />
       <PetDirectory />
       <globalStyle.H3>Categories</globalStyle.H3>
-      <Categories/>
-    </>
+      <Categories />
+    </style.HomeContainer>
   );
 };
 

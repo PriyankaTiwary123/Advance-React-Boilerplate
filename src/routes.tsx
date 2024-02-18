@@ -1,10 +1,10 @@
 import { RouteObject } from 'react-router-dom';
-import { Home, About } from './pages';
+import { Home, Detail } from './pages';
 
 // Define your route configuration
 const routeConfig: RouteObject[] = [
   { path: '/', element: <Home /> },
-  { path: '/about', element: <About /> },
+  { path: '/pet-details', element: <Detail /> },
 ];
 
 export default routeConfig;

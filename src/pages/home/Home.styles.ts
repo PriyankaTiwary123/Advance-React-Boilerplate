@@ -3,6 +3,16 @@ import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
 
+export const HomeContainer = styled.div`
+margin: 0 auto;
+max-width: 1140px;
+
+@media (max-width: ${breakpoints.mobile}) {
+  background-color: transparent;
+  max-width: none;
+  padding: 0;
+  width: auto;`;
+
 export const DropDownContainer = styled.div<{ spacing?: string }>`
   display: flex;
   margin-top: 24px;

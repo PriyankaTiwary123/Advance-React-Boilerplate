@@ -1,4 +1,4 @@
 import Home from './home/Home'
-import About from './About'
+import Detail from './Detail/Details'
 
-export {Home, About}
+export {Home, Detail}
