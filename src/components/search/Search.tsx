@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../appStore";
 import { useHandleFuzzySearch } from "../../hooks/usehandleFuzzySearch";
@@ -9,14 +8,14 @@ import List from "../list/List";
 import * as style from "./Search.Styles";
 
 const Search: React.FC = () => {
-  const { handleInputChange } = useHandleFuzzySearch();
+  const { handleInputChange, isFilterListOpen, listRef } =
+    useHandleFuzzySearch();
   const { handleKeyDown, focusedIndex } = useKeyEvent();
 
   // Redux state
   const { inputValue, filteredPets, isShowFilteredList } = useSelector(
     (state: RootState) => state.useFuzzySearch
   );
-
 
   return (
     <>
@@ -40,14 +39,18 @@ const Search: React.FC = () => {
         />
 
         {/* Filtered list */}
-        {inputValue && filteredPets.length > 0 && isShowFilteredList && (
-          <List
-            inputValue={inputValue}
-            filteredPets={filteredPets}
-            focusedIndex={focusedIndex}
-            isShowFilteredList={isShowFilteredList}
-          />
-        )}
+        {inputValue &&
+          filteredPets.length > 0 &&
+          isShowFilteredList &&
+          isFilterListOpen && (
+            <List
+              inputValue={inputValue}
+              filteredPets={filteredPets}
+              focusedIndex={focusedIndex}
+              isShowFilteredList={isShowFilteredList}
+              listRef={listRef}
+            />
+          )}
       </style.AutocompleteContainer>
     </>
   );

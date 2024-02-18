@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { useSuggestionClick } from "../../hooks/useSuggestionClick";
 import { Pet } from "../types/pet";
 import * as style from "./List.styles";
@@ -8,6 +8,7 @@ interface ListProps {
   filteredPets: Pet[];
   focusedIndex: number | null;
   isShowFilteredList: boolean;
+  listRef: React.RefObject<HTMLUListElement>; // Define listRef prop
 }
 
 const List: React.FC<ListProps> = ({
@@ -15,6 +16,7 @@ const List: React.FC<ListProps> = ({
   filteredPets,
   focusedIndex,
   isShowFilteredList,
+  listRef, // Receive listRef prop
 }) => {
   // Hooks
   const { handleSuggestionClick } = useSuggestionClick();
@@ -48,7 +50,10 @@ const List: React.FC<ListProps> = ({
   return (
     <>
       {/* Filtered list */}
-      <style.FilteredList isShowFilteredList={isShowFilteredList}>
+      <style.FilteredList
+        isShowFilteredList={isShowFilteredList}
+        ref={listRef} // Attach the ref to the list container
+      >
         {filteredPets.map((pet: Pet, index: number) => (
           <style.ListItem
             key={pet.id}
