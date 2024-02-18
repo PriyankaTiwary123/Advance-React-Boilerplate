@@ -20,16 +20,19 @@ export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
 `;
 
 // Styled component for individual list items
-export const ListItem = styled.li<{ focusedindex?: boolean }>`
-  padding: 0px 12px;
+export const ListItem = styled.li<{ focusedIndex?: boolean }>`
+  padding: 1px 12px;
   cursor: pointer;
   line-height: 0.5;
-  background: ${({ focusedindex }) =>
-    focusedindex ? theme.colors.textGrayLight : "transparent"};
+  background: ${({ focusedIndex }) =>
+  focusedIndex ? theme.colors.textGrayLight : "transparent"};
   color: ${theme.colors.textGrayDark};
   border-bottom: 1px solid ${theme.colors.textGray};
   &:last-child {
     border-bottom: none;
+  }
+  &:hover {
+    background-color: ${theme.colors.textGrayLight};
   }
 `;
 

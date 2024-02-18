@@ -12,6 +12,9 @@ export const useKeyEvent = () => {
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log("Key pressed:", event.key);
+    console.log("Current focusedIndex:", focusedIndex);
+
     if (event.key === "ArrowDown") {
       setFocusedIndex((prevIndex) =>
         prevIndex === null || prevIndex === filteredPets.length - 1

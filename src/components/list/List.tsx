@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { useKeyEvent } from "../../hooks/useKeyEvent";
 import { useSuggestionClick } from "../../hooks/useSuggestionClick";
 import { Pet } from "../types/pet";
 import * as style from "./List.styles";
@@ -7,17 +6,18 @@ import * as style from "./List.styles";
 interface ListProps {
   inputValue: string;
   filteredPets: Pet[];
+  focusedIndex: number | null;
   isShowFilteredList: boolean;
 }
 
 const List: React.FC<ListProps> = ({
   inputValue,
   filteredPets,
+  focusedIndex,
   isShowFilteredList,
 }) => {
   // Hooks
   const { handleSuggestionClick } = useSuggestionClick();
-  const { focusedIndex } = useKeyEvent();
 
   // Memoized function to highlight matching text
   const highlightMatch = useMemo(() => {
@@ -46,13 +46,13 @@ const List: React.FC<ListProps> = ({
   const role = isShowFilteredList ? "listitem" : "option";
 
   return (
-    <div>
+    <>
       {/* Filtered list */}
       <style.FilteredList isShowFilteredList={isShowFilteredList}>
         {filteredPets.map((pet: Pet, index: number) => (
           <style.ListItem
             key={pet.id}
-            focusedindex={focusedIndex === index}
+            focusedIndex={focusedIndex === index}
             onClick={() => handleSuggestionClick(pet)}
             tabIndex={0} // Add tabindex for keyboard accessibility
             role={role} // Make the role dynamic
@@ -64,7 +64,7 @@ const List: React.FC<ListProps> = ({
           </style.ListItem>
         ))}
       </style.FilteredList>
-    </div>
+    </>
   );
 };
 

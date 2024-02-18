@@ -10,7 +10,7 @@ import * as style from "./Search.Styles";
 
 const Search: React.FC = () => {
   const { handleInputChange } = useHandleFuzzySearch();
-  const { handleKeyDown } = useKeyEvent();
+  const { handleKeyDown, focusedIndex } = useKeyEvent();
 
   // Redux state
   const { inputValue, filteredPets, isShowFilteredList } = useSelector(
@@ -44,6 +44,7 @@ const Search: React.FC = () => {
           <List
             inputValue={inputValue}
             filteredPets={filteredPets}
+            focusedIndex={focusedIndex}
             isShowFilteredList={isShowFilteredList}
           />
         )}
