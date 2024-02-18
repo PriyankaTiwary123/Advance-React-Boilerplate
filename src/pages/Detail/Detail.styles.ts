@@ -27,6 +27,10 @@ export const AvatarImage = styled.img`
 
 export const PetDetailsContainer = styled.div`
   width: 40%;
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 90%;
+    margin: 20px;
+  }
 `;
 export const PetDetailsContent = styled.div`
 display: flex; 

@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../appStore";
-import GlobalStyles, { H2, H3, H4 } from "../../styles/GlobalStyles";
+import { H2, H4 } from "../../styles/GlobalStyles";
+import { calculateAge } from "../../utils/helper";
 import * as style from "./Detail.styles";
 
 const Detail: React.FC = () => {
@@ -11,20 +12,36 @@ const Detail: React.FC = () => {
   );
 
   const index = filteredPets.findIndex((pet) => pet.id == petId);
+  const pet = filteredPets[index];
+
+
+  const petContentDetails = [
+    { label: "Type", value: pet?.species },
+    { label: "Date Added", value: pet?.dateAdded },
+    { label: "Age", value: calculateAge(pet?.dateAdded) },
+    { label: "Available for Adoption", value: pet?.available ? "Yes" : "No" },
+  ];
 
   return (
     <style.DetailContainer>
-      <style.AvatarImage src={filteredPets[index]?.photoUrl} alt="Pet Avatar" />
-      <style.PetDetailsContainer>
-        <H2>{filteredPets[index]?.name}</H2>
-        <style.PetDetailsContent>
-        <div style={{width: '50%'}}><label><H4>Type</H4></label>{filteredPets[index].species}</div>
-        <div style={{width: '50%'}}><label><H4>Date Added</H4></label>{filteredPets[index].dateAdded}</div>
-        <div style={{width: '50%'}}><label><H4>Age</H4></label>{filteredPets[index].species}</div>
-        <div style={{width: '50%'}}><label><H4>Available for Adoption</H4></label>{filteredPets[index].available ? 'yes' : 'No'}</div>
-        </style.PetDetailsContent>
-       
-      </style.PetDetailsContainer>
+      {pet && (
+        <>
+          <style.AvatarImage src={pet.photoUrl} alt="Pet Avatar" />
+          <style.PetDetailsContainer>
+            <H2>{pet.name}</H2>
+            <style.PetDetailsContent>
+              {petContentDetails.map((detail, index) => (
+                <div key={index} style={{ width: "50%" }}>
+                  <label>
+                    <H4>{detail.label}</H4>
+                  </label>
+                  {detail.value}
+                </div>
+              ))}
+            </style.PetDetailsContent>
+          </style.PetDetailsContainer>
+        </>
+      )}
     </style.DetailContainer>
   );
 };

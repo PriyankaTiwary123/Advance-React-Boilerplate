@@ -18,10 +18,6 @@ const createHeadingStyles = (fontSize: string) => styled.h1`
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   font-size: ${fontSize};
-
-  @media (max-width: ${breakpoints.mobile}) {
-    margin-left: 16px;
-  }
 `;
 
 export const H1 = createHeadingStyles('33px');
