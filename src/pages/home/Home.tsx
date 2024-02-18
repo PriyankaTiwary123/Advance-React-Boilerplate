@@ -17,7 +17,7 @@ const Home: React.FC = () => {
   // };
 
   return (
-    <style.HomeContainer>
+    <style.ContentContainer>
       <globalStyle.H1>Pets</globalStyle.H1>
       <Search />
       <style.DropDownContainer spacing="20px">
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
       <PetDirectory />
       <globalStyle.H3>Categories</globalStyle.H3>
       <Categories />
-    </style.HomeContainer>
+    </style.ContentContainer>
   );
 };
 

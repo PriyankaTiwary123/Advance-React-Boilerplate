@@ -21,7 +21,7 @@ const Results: React.FC = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= parseInt(breakpoints.mobile));
     };
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -29,7 +29,6 @@ const Results: React.FC = () => {
   }, []);
 
   const redirectToPetDetails = (petId: string) => {
-    // Redirect to pet details page with petId as URL parameter
     navigate(`/pet-details/${petId}`);
   }
 

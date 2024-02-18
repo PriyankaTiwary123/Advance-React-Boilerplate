@@ -5,10 +5,8 @@ import { useHandleFuzzySearch } from "../../hooks/usehandleFuzzySearch";
 import { useKeyEvent } from "../../hooks/useKeyEvent";
 import { usePet } from "../../hooks/usePet";
 import { useSuggestionClick } from "../../hooks/useSuggestionClick";
-// import Results from "../../pages/home/Results";
 import { SearchIcon } from "../../public/Icons/SearchIcon";
 import theme from "../../styles/theme";
-import { Button } from "../button/Button";
 import { Pet } from "../types/pet";
 import * as style from "./Search.Styles";
 
@@ -48,7 +46,6 @@ const Search: React.FC = () => {
     <>
       <style.AutocompleteContainer>
         <SearchIcon color={theme.colors.secondary} />
-
         <style.SearchInput
           type="text"
           placeholder={"Search for Pets"}

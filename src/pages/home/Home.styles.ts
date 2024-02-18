@@ -3,7 +3,7 @@ import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
 
-export const HomeContainer = styled.div`
+export const ContentContainer = styled.div`
 margin: 0 auto;
 max-width: 1140px;
 
