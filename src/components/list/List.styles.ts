@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
+// Styled components for the filtered list
 export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
   position: absolute;
   top: calc(100% + (-16px));
@@ -11,13 +12,14 @@ export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
   box-sizing: border-box;
   background-color: ${theme.colors.primary};
   padding: 0;
-  border: 1px solid ${({ isShowFilteredList })=> isShowFilteredList ? theme.colors.secondary: theme.colors.primary};
+  border: 1px solid ${({ isShowFilteredList }) =>
+    isShowFilteredList ? theme.colors.secondary : theme.colors.primary};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   list-style-type: none;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
+// Styled component for individual list items
 export const ListItem = styled.li<{ focusedindex?: boolean }>`
   padding: 0px 12px;
   cursor: pointer;
@@ -31,6 +33,7 @@ export const ListItem = styled.li<{ focusedindex?: boolean }>`
   }
 `;
 
+// Styled component for highlighted text
 export const HighlightedText = styled.span`
   font-weight: bold;
   color: ${theme.colors.textPrimary};

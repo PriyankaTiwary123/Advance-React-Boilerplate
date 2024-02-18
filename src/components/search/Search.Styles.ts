@@ -3,6 +3,7 @@ import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
 
+// Styled component for the autocomplete container
 export const AutocompleteContainer = styled.div`
   position: relative;
   display: flex;
@@ -18,10 +19,12 @@ export const AutocompleteContainer = styled.div`
   }
 `;
 
+// Styled component for the search input container
 export const SearchInputContainer = styled.div`
   position: relative;
 `;
 
+// Styled component for the search input field
 export const SearchInput = styled.input<{ isShowFilteredList: boolean }>`
   border: 1px solid
     ${({ isShowFilteredList }) =>
