@@ -32,7 +32,7 @@ export const DropdownButton = styled.button<{ isMargin?: boolean }>`
 export const ButtonText = styled.div``;
 
 export const DropdownContent = styled.div`
-  display: none;
+display: ${(props: { isOpen: boolean }) => (props.isOpen ? "block" : "none")};
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;

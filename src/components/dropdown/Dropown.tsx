@@ -6,7 +6,7 @@ import * as style from "./Dropdown.styles";
 interface DropDownProps {
   label: string;
   isChevron: boolean;
-  isMargin: boolean
+  isMargin: boolean;
 }
 
 const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {

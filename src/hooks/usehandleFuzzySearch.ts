@@ -13,28 +13,27 @@ export const useHandleFuzzySearch = () => {
   const dispatch = useDispatch();
   const listRef = useRef<HTMLUListElement>(null); // Reference to the list container
   const [isFilterListOpen, setIsFilterListOpen] = useState(false);
-  const closeFilterList = () => {
-    setIsFilterListOpen(false);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      !event.target ||
+      !(event.target instanceof Node) ||
+      !listRef.current?.contains(event.target) // Check if the click target is inside the filter list
+    ) {
+      // Close the filter list
+      setIsFilterListOpen(false);
+    }
   };
 
   useEffect(() => {
-    if (isFilterListOpen) {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (
-          listRef.current &&
-          !listRef.current.contains(event.target as Node)
-        ) {
-          closeFilterList();
-        }
-      };
+    // Add event listener to the document when the component mounts
+    document.addEventListener("click", handleClickOutside);
 
-      document.addEventListener("mousedown", handleClickOutside);
-
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }
-  }, [isFilterListOpen]);
+    // Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const updateFilteredPets = useCallback(
     (value: string) => {
