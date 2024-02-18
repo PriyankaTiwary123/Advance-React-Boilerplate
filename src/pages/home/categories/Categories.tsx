@@ -7,31 +7,69 @@ import { HomeIcon } from "../../../public/Icons/HomeIcon";
 import * as style from "./Categories.styles";
 
 interface IconObject {
-    id: string;
-    component: React.ComponentType<{ width: string; height: string; color: string }>;
+  id: string;
+  component: React.ComponentType<{
+    width: string;
+    height: string;
     color: string;
+  }>;
+  color: string;
+  name: string;
 }
 
 const Categories = () => {
-    const icons: IconObject[] = [
-        { id: 'heart', component: HeartIcon, color: theme.colors.secondary },
-        { id: 'pin', component: PinIcon, color: theme.colors.secondary },
-        { id: 'clock', component: ClockIcon, color: theme.colors.secondary },
-        { id: 'confetti', component: ConfettiIcon, color: theme.colors.secondary },
-        { id: 'home', component: HomeIcon, color: theme.colors.secondary },
-    ];
+  const categories: IconObject[] = [
+    {
+      id: "heart",
+      component: HeartIcon,
+      color: theme.colors.secondary,
+      name: "All pets",
+    },
+    {
+      id: "pin",
+      component: PinIcon,
+      color: theme.colors.secondary,
+      name: "Location specific",
+    },
+    {
+      id: "clock",
+      component: ClockIcon,
+      color: theme.colors.secondary,
+      name: "Age specific",
+    },
+    {
+      id: "confetti",
+      component: ConfettiIcon,
+      color: theme.colors.secondary,
+      name: "Available now",
+    },
+    {
+      id: "home",
+      component: HomeIcon,
+      color: theme.colors.secondary,
+      name: "For small or big homes",
+    },
+  ];
 
-    return (
-        <style.CategoryContainer>
-            {icons.map((icon) => (
-                <style.Category key={icon.id} totalCategory={icons.length}>
-                    <style.CategoryImage>
-                        <icon.component width="60px" height="60px" color={icon.color} />
-                    </style.CategoryImage>
-                </style.Category>
-            ))}
-        </style.CategoryContainer>
-    );
+  return (
+    <style.CategoryContainer>
+      {categories.map((category) => {
+        return <style.categoryContent totalCategory={categories?.length}>
+          <style.Category>
+            <style.CategoryImage key={category.id}>
+              <category.component
+                width="60px"
+                height="60px"
+                color={category.color}
+              />
+            </style.CategoryImage>
+          </style.Category>
+          <style.categoryName>{category.name}</style.categoryName>
+        </style.categoryContent>
+      })}
+      
+    </style.CategoryContainer>
+  );
 };
 
 export default Categories;

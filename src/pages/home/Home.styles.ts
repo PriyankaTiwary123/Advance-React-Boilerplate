@@ -12,7 +12,8 @@ max-width: 1140px;
   width: auto;
   h1{
     margin-left: 16px;
-  }`;
+  }
+  `;
 
 export const DropDownContainer = styled.div<{ spacing?: string }>`
   display: flex;

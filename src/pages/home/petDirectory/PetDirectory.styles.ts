@@ -19,9 +19,9 @@ export const DirectoryDetail = styled.div`
   color: ${theme.colors.primary};
   ${flexMixins?.flexColumnCenter};
   align-items: flex-start;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 10px 10px 0px;
   text-wrap: balance;
-  padding-left: 16px;
+  padding-left: 32px;
   button {
     margin-top: 16px;
   }
@@ -50,7 +50,7 @@ export const PetDirectoryContainer = styled.div`
 
 export const TreatsImage = styled.img`
   width: 90%;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 10px 0px 0px 10px;
   height: auto;
   object-fit: cover;
 

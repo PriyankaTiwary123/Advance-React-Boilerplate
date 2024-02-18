@@ -1,11 +1,13 @@
 import Dropdown from "../../components/dropdown/Dropown";
 import Search from "../../components/search/Search";
 import { dropdowns } from "../../constant";
-import * as globalStyle from "../../styles/GlobalStyles";
+import * as globalStyle from "../../styles/common.style";
 import { Categories, PetDirectory, Results } from ".";
 import * as style from "./Home.styles";
+import { usePetData } from "../../hooks/usePetData";
 
 const Home: React.FC = () => {
+  usePetData();
   return (
     <style.ContentContainer>
       <globalStyle.H1>Pets</globalStyle.H1>

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../appStore";
-import { H2, H4 } from "../../styles/GlobalStyles";
+import { H2, H4 } from "../../styles/common.style";
 import { calculateAge } from "../../utils/helper";
 import * as style from "./Detail.styles";
 

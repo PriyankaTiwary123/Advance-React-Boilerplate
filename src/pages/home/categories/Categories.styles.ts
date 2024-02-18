@@ -5,30 +5,38 @@ import theme from "../../../styles/theme";
 
 export const CategoryContainer = styled.div`
   ${flexMixins.flexRowBetween};
-  margin-top: 16px;
-
+  margin: 24px 0px;
   @media (max-width: ${breakpoints.mobile}) {
     overflow-x: scroll;
     margin-left: 16px;
   }
 `;
 
-export const Category = styled.div<{ totalCategory: number }>`
+export const Category = styled.div`
   border-radius: 10px;
-  min-width: ${({ totalCategory }) => (100 / totalCategory)}%;
   height: 80px;
   ${flexMixins.flexRowCenter};
   background: ${theme.colors.textGrayLight};
   align-items: baseline;
-  margin-right: 10px;
-
   @media (max-width: ${breakpoints.mobile}) {
-    flex-shrink: 0;
-    min-width: 50%;
+    margin-left: 10px;
   }
 `;
 
 export const CategoryImage = styled.div`
   position: relative;
   bottom: 15px;
+`;
+
+export const categoryContent = styled.div<{ totalCategory: number }>`
+  width: ${({ totalCategory }) => 100 / totalCategory - 2}%;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-shrink: 0;
+    min-width: 50%;
+  }
+`;
+
+export const categoryName = styled.div`
+  margin-top: 8px;
+  font-weight: bold;
 `;

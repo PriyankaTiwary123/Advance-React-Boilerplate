@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../appStore";
 import { useHandleFuzzySearch } from "../../hooks/usehandleFuzzySearch";
@@ -8,7 +9,6 @@ import List from "../list/List";
 import * as style from "./Search.Styles";
 
 const Search: React.FC = () => {
-  // Hooks
   const { handleInputChange } = useHandleFuzzySearch();
   const { handleKeyDown } = useKeyEvent();
 
@@ -16,6 +16,7 @@ const Search: React.FC = () => {
   const { inputValue, filteredPets, isShowFilteredList } = useSelector(
     (state: RootState) => state.useFuzzySearch
   );
+
 
   return (
     <>
