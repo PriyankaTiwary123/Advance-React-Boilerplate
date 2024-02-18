@@ -49,7 +49,7 @@ export const useHandleFuzzySearch = () => {
     const enteredVal = event.target.value;
     dispatch(setInputValue(enteredVal));
     updateFilteredPets(enteredVal);
-    dispatch(setShowFiltered(true))
+    enteredVal.trim()==='' ? dispatch(setShowFiltered(false)) : dispatch(setShowFiltered(true))
   };
 
   return {

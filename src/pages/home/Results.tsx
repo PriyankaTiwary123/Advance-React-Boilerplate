@@ -42,7 +42,7 @@ const Results: React.FC = () => {
           />
           <div>{pet.name}</div>
           {isMobile ? ( // For mobile
-            <style.RedirectContainer>
+            <style.RedirectContainer  onClick={() => redirectToPetDetails(pet.id)}>
               <ArrowRighIcon width={30} height={30} color={theme.colors.primary}/>
             </style.RedirectContainer>
           ) : ( // For desktop
