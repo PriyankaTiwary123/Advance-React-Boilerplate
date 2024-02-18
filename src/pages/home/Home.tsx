@@ -7,6 +7,7 @@ import * as globalStyle from "../../styles/GlobalStyles";
 import Categories from "./Categories";
 import * as styles from "./Home.styles";
 import PetDirectory from "./PetDirectory";
+import Results from "./Results";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Home: React.FC = () => {
         ))}
       </styles.DropDownContainer>
        <globalStyle.H3>Results</globalStyle.H3>
+       <Results/>
       <PetDirectory />
       <globalStyle.H3>Categories</globalStyle.H3>
       <Categories/>

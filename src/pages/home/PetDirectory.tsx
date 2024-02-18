@@ -21,7 +21,7 @@ const DirectoryDetailDesktop = () => {
         variant="primary"
         onClick={() => {}}
         children="See All"
-        borderRadius="20px"
+        borderRadius="24px"
       ></Button>
     </styles.DirectoryDetail>
   );

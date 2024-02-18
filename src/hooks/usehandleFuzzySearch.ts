@@ -6,9 +6,11 @@ import {
 import { fuzzySearch } from "../utils/helper";
 import { BASE_URL } from "../constant";
 import { Pet } from "../components/types/pet";
+import { useSuggestionClick } from "./useSuggestionClick";
 
 export const useHandleFuzzySearch = () => {
   const dispatch = useDispatch();
+  // const { showFilteredList, setShowFilteredList } = useSuggestionClick();
 
   const updateFilteredPets = async (value: string) => {
     try {
@@ -32,10 +34,12 @@ export const useHandleFuzzySearch = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const enteredVal = event.target.value;
     dispatch(setInputValue(enteredVal));
-    updateFilteredPets(enteredVal); // Update filteredPets when input value changes
+    updateFilteredPets(enteredVal);
+    // setShowFilteredList(true);
   };
 
   return {
     handleInputChange,
+    updateFilteredPets
   };
 };

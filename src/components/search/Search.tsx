@@ -16,7 +16,7 @@ const Search: React.FC = () => {
   const { filterListRef } = usePet();
   const { handleInputChange } = useHandleFuzzySearch();
   const { handleKeyDown, focusedIndex } = useKeyEvent();
-  const { handleSuggestionClick } = useSuggestionClick();
+  const { handleSuggestionClick, showFilteredList } = useSuggestionClick();
 
   const { inputValue, filteredPets } = useSelector(
     (state: RootState) => state.useFuzzySearch
@@ -58,7 +58,7 @@ const Search: React.FC = () => {
           aria-label="Search for Pets"
           autoComplete="off"
         />
-        {inputValue && filteredPets.length > 0 && (
+        {inputValue && filteredPets.length > 0 && showFilteredList && (
           <style.FilteredList ref={filterListRef}>
             {filteredPets.map((pet: Pet, index: number) => (
               <style.ListItem
@@ -73,40 +73,8 @@ const Search: React.FC = () => {
           </style.FilteredList>
         )}
       </style.AutocompleteContainer>
+     
 
-      {/* Result section */}
-      {filteredPets?.map((pet: Pet, index: number) => {
-        return (
-          <div style={{ display: "flex" }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginRight: "20px",
-              }}
-            >
-              <img
-                src={pet.photoUrl}
-                alt={pet.name}
-                style={{
-                  width: "100px",
-                  height: "100px",
-                  marginBottom: "10px",
-                }}
-              />
-              <div>{pet.name}</div>
-              <Button
-                variant="secondary"
-                onClick={() => {}}
-                borderRadius="20px"
-              >
-                View
-              </Button>
-            </div>
-          </div>
-        );
-      })}
     </>
   );
 };

@@ -52,7 +52,7 @@ export const FilteredList = styled.ul`
   list-style-type: none;
 `;
 
-export const ListItem = styled.li<{ focusedindex?: number }>`
+export const ListItem = styled.li<{ focusedindex?: boolean }>`
   padding: 8px 12px;
   cursor: pointer;
   background: ${({ focusedindex }) =>

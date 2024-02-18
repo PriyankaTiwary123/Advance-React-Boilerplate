@@ -38,7 +38,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
     switch (size) {
       case 'small':
         return `
-          padding: 5px 10px;
+         padding: 10px 30px;
           font-size: 12px;
         `;
       case 'large':
@@ -48,7 +48,7 @@ export const ButtonWrapper = styled.button<ButtonProps>`
         `;
       default:
         return `
-          padding: 10px 60px;
+         padding: 16px 80px;
           font-size: 14px;
         `;
     }
