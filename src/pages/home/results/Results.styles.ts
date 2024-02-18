@@ -23,6 +23,7 @@ export const PetContent = styled.div<{ ismobile?: boolean }>`
   }
   @media (max-width: ${breakpoints.mobile}) {
     width: 100%;
+    margin: 0;
     ${flexMixins.flexRowBetween};
   }
 `;

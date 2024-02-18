@@ -9,7 +9,10 @@ max-width: 1140px;
   background-color: transparent;
   max-width: none;
   padding: 0;
-  width: auto;`;
+  width: auto;
+  h1{
+    margin-left: 16px;
+  }`;
 
 export const DropDownContainer = styled.div<{ spacing?: string }>`
   display: flex;
