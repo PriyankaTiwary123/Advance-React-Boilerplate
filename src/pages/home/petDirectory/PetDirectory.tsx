@@ -1,7 +1,7 @@
-import { Button } from "../../components/button/Button";
-import { ArrowRighIcon } from "../../public/ArrowRight";
-import theme from "../../styles/theme";
-import * as styles from "./Home.styles";
+import { Button } from "../../../components/button/Button";
+import { ArrowRighIcon } from "../../../public/ArrowRight";
+import theme from "../../../styles/theme";
+import * as styles from "./PetDirectory.styles";
 
 const DirectoryDetailMobile = () => (
   <styles.DirectoryDetailMobile>
@@ -14,9 +14,9 @@ const DirectoryDetailDesktop = () => {
   return (
     <styles.DirectoryDetail>
       <h2>Pets Directory</h2>
-      <styles.Details>
+      <div>
         See all pets available for adoption, promote them and get them a home
-      </styles.Details>
+      </div>
       <Button
         variant="primary"
         onClick={() => {}}

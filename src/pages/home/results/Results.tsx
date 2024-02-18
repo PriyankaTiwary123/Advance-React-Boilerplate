@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"
-import { RootState } from "../../appStore";
-import { Button } from "../../components/button/Button";
-import { Pet } from "../../components/types/pet";
-import { ArrowRighIcon } from "../../public/ArrowRight";
-import breakpoints from "../../styles/breakpoints";
-import theme from "../../styles/theme";
-import * as style from './Home.styles';
+import { RootState } from "../../../appStore";
+import { Button } from "../../../components/button/Button";
+import { Pet } from "../../../components/types/pet";
+import { ArrowRighIcon } from "../../../public/ArrowRight";
+import breakpoints from "../../../styles/breakpoints";
+import theme from "../../../styles/theme";
+import * as style from './Results.styles';
 
 const Results: React.FC = () => {
   const navigate = useNavigate();

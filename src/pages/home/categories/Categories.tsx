@@ -1,10 +1,10 @@
-import * as style from "./Home.styles";
-import theme from "../../styles/theme";
-import { HeartIcon } from "../../public/Icons/HeartIcon";
-import { PinIcon } from "../../public/Icons/PinIcon";
-import { ClockIcon } from "../../public/Icons/ClockIcon";
-import { ConfettiIcon } from "../../public/Icons/ConfettieIcon";
-import { HomeIcon } from "../../public/Icons/HomeIcon";
+import theme from "../../../styles/theme";
+import { HeartIcon } from "../../../public/Icons/HeartIcon";
+import { PinIcon } from "../../../public/Icons/PinIcon";
+import { ClockIcon } from "../../../public/Icons/ClockIcon";
+import { ConfettiIcon } from "../../../public/Icons/ConfettieIcon";
+import { HomeIcon } from "../../../public/Icons/HomeIcon";
+import * as style from "./Categories.styles";
 
 interface IconObject {
     id: string;

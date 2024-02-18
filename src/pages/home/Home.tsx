@@ -1,21 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import { Button } from "../../components/button/Button";
 import Dropdown from "../../components/dropdown/Dropown";
 import Search from "../../components/search/Search";
 import { dropdowns } from "../../constant";
+import Categories from "./categories/Categories";
+import PetDirectory from "./petDirectory/PetDirectory";
+import Results from "./results/Results";
 import * as globalStyle from "../../styles/GlobalStyles";
-import Categories from "./Categories";
 import * as style from "./Home.styles";
-import PetDirectory from "./PetDirectory";
-import Results from "./Results";
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
-
-  // const redirectToAbout = () => {
-  //   navigate('/about');
-  // };
-
   return (
     <style.ContentContainer>
       <globalStyle.H1>Pets</globalStyle.H1>
