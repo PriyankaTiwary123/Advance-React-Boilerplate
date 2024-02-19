@@ -3,6 +3,6 @@ export const BASE_URL: string =
 
 export const dropdowns = [
   { id: "type", label: "Type", isChevron: true, isMargin: false },
-  { id: "category", label: "Category", isChevron: true, isMargin: true },
+  { id: "availableForAdoption", label: "Available For Adoption", isChevron: true, isMargin: true },
   { id: "latest", label: "Latest Added", isChevron: false, isMargin: true },
 ];

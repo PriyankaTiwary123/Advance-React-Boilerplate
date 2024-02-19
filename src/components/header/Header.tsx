@@ -1,9 +1,15 @@
 import * as Style from "./Header.Styles";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  icon?: string;
+  title?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ icon, title }) => {
   return (
     <Style.HeaderContainer>
-      <Style.ImageContainer src='/icons/pet-icon-small.svg'></Style.ImageContainer>
+      {icon && <Style.ImageContainer src={icon} alt="Pet Icon" />}
+      {title && <h1>{title}</h1>}
     </Style.HeaderContainer>
   );
 };

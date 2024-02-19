@@ -1,11 +1,11 @@
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { useSuggestionClick } from "../../hooks/useSuggestionClick";
 import { Pet } from "../types/pet";
 import * as style from "./List.styles";
 
 interface ListProps {
   inputValue: string;
-  filteredPets: Pet[];
+  filteredPets: Pet [];
   focusedIndex: number | null;
   isShowFilteredList: boolean;
   listRef: React.RefObject<HTMLUListElement>; // Define listRef prop
@@ -28,11 +28,11 @@ const List: React.FC<ListProps> = ({
       if (index !== -1) {
         return (
           <>
-            <style.HighlightedText>
+            <style.HighlightedText data-testid="highlighted-text">
               {text?.substring(0, index)}
             </style.HighlightedText>
             {text?.substring(index, index + inputValue.length)}
-            <style.HighlightedText>
+            <style.HighlightedText data-testid="highlighted-text">
               {text?.substring(index + inputValue.length)}
             </style.HighlightedText>
           </>

@@ -1,11 +1,11 @@
-import * as Styles from "./Footer.Styles"
+import * as Styles from "./Footer.Styles";
 
-const Footer:React.FC = () => {
-  return (
-    <Styles.FooterContainer>
-      
-    </Styles.FooterContainer>
-  )
+interface FooterProps {
+  children?: React.ReactNode;
 }
 
-export default Footer
+const Footer: React.FC<FooterProps> = ({ children }) => {
+  return <Styles.FooterContainer data-testid="footer-container">{children}</Styles.FooterContainer>;
+};
+
+export default Footer;

@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../appStore";
 import { ChevronDown } from "../../public/Icons/ChevronDownIcon";
 import theme from "../../styles/theme";
+import { Pet } from "../types/pet";
 import * as style from "./Dropdown.styles";
 
 interface DropDownProps {
@@ -11,9 +14,17 @@ interface DropDownProps {
 
 const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { filteredPets } = useSelector((state: RootState) => state.useFuzzySearch);
+
+  const speciesSet: Set<string> = new Set(filteredPets.map((pet: Pet) => pet.species));
+  const speciesList: string[] = Array.from(speciesSet);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleOptionClick = () => {
+    setIsOpen(false); // Close the dropdown list when an option is clicked
   };
 
   return (
@@ -24,7 +35,15 @@ const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
       </style.DropdownButton>
       {isChevron && (
         <style.DropdownContent isOpen={isOpen}>
-          <style.DropdownOption href="#">Option 1</style.DropdownOption>
+          {speciesList.map((species: string, index: number) => (
+            <style.DropdownOption
+              key={index}
+              href="#"
+              onClick={handleOptionClick} // Close the dropdown list on option click
+            >
+              {species}
+            </style.DropdownOption>
+          ))}
         </style.DropdownContent>
       )}
     </>

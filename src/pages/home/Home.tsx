@@ -10,9 +10,10 @@ const Home: React.FC = () => {
   usePetData();
   return (
     <style.ContentContainer>
-      <globalStyle.H1>Pets</globalStyle.H1>
-      <Search />
-      <style.DropDownContainer spacing="20px">
+      <style.PageSection>
+        <globalStyle.H1>Pets</globalStyle.H1>
+        <Search />
+        <style.DropDownContainer>
         {dropdowns.map((dropdown) => (
           <Dropdown
             key={dropdown.id}
@@ -22,11 +23,21 @@ const Home: React.FC = () => {
           />
         ))}
       </style.DropDownContainer>
-      <globalStyle.H3>Results</globalStyle.H3>
-      <Results />
-      <PetDirectory />
-      <globalStyle.H3>Categories</globalStyle.H3>
-      <Categories />
+      </style.PageSection>
+    
+      <style.PageSection>
+        <globalStyle.H3>Results</globalStyle.H3>
+        <Results />
+      </style.PageSection>
+      <style.PageSection>
+        {" "}
+        <PetDirectory />
+      </style.PageSection>
+
+      <style.PageSection>
+        <globalStyle.H3>Categories</globalStyle.H3>
+        <Categories />
+      </style.PageSection>
     </style.ContentContainer>
   );
 };

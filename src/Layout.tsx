@@ -9,7 +9,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Main>
-      <Header />
+      <Header icon="/icons/pet-icon-small.svg" />
       <Content>{children}</Content>
       <Footer />
     </Main>
