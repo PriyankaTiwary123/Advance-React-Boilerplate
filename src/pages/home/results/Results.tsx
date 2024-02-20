@@ -17,8 +17,6 @@ const Results: React.FC = () => {
     (state: RootState) => state.useFuzzySearch
   );
 
-  console.log(filteredPetsonDropDown, 'filteredPetsonDropDown')
-
   useEffect(() => {
     const handleResize = () => {
       setismobile(window.innerWidth <= parseInt(breakpoints.mobile));

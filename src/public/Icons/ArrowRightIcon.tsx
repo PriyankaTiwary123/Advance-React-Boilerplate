@@ -3,7 +3,11 @@ interface IconProps {
   height: number;
   color: string;
 }
-export const ArrowRighIcon: React.FC<IconProps> = ({ color, width, height }) => {
+export const ArrowRighIcon: React.FC<IconProps> = ({
+  color = "#111111",
+  width = 24,
+  height = 24,
+}) => {
   return (
     <svg
       width={width}

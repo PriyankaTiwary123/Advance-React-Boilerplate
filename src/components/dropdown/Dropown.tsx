@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../appStore";
 import { ChevronDown } from "../../public/Icons/ChevronDownIcon";
@@ -28,21 +28,20 @@ const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
   );
   const speciesList: string[] = Array.from(speciesSet);
 
-  const handleSorting = () => {
+  const handleSorting = useCallback(() => {
     const sortedPets = [...filteredPets].sort((a: Pet, b: Pet) => {
-      // Ensure that dateAdded is defined before attempting to convert it to a Date object
-      const dateA = a.dateAdded ? new Date(a.dateAdded) : null;
-      const dateB = b.dateAdded ? new Date(b.dateAdded) : null;
+      const dateA =
+        a.dateAdded && new Date(a.dateAdded.split("-").reverse().join("-"));
+      const dateB =
+        b.dateAdded && new Date(b.dateAdded.split("-").reverse().join("-"));
 
       if (dateA && dateB) {
         return dateB.getTime() - dateA.getTime();
       }
-
-      // Handle case where dateAdded is undefined
       return 0;
     });
     dispatch(setFilteredPets(sortedPets));
-  };
+  }, [filteredPets]);
 
   const onHandleFilterClick = (isChevron: boolean) => {
     isChevron ? setIsOpen(!isOpen) : handleSorting();

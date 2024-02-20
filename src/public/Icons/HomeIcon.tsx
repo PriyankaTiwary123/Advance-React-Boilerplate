@@ -3,7 +3,11 @@ interface IconProps {
   width: string;
   height: string;
 }
-export const HomeIcon: React.FC<IconProps> = ({ color, width, height }) => {
+export const HomeIcon: React.FC<IconProps> = ({
+  color = "#111111",
+  width = 24,
+  height = 24,
+}) => {
   return (
     <svg
       width={width}

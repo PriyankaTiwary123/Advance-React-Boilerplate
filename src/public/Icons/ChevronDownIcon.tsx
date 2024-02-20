@@ -1,7 +1,7 @@
 interface IconProps {
   color: string;
 }
-export const ChevronDown: React.FC<IconProps> = ({ color }) => {
+export const ChevronDown: React.FC<IconProps> = ({ color = "#111111" }) => {
   return (
     <svg
       width="12"
