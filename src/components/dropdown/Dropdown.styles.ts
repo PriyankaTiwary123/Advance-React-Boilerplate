@@ -3,11 +3,11 @@ import breakpoints from "../../styles/breakpoints";
 import flexMixins from "../../styles/flexMixins";
 import theme from "../../styles/theme";
 
-const buttonBase = css`
-  background-color: transparent;
+const buttonBase = ({ disabled }: { disabled: boolean }) => css`
+  background: ${disabled ? theme.colors.textGrayLight : "transparent"};
   border-radius: 20px;
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: ${disabled ? "not-allowed" : "pointer"};
   color: ${theme.colors.textPrimary};
   border: 1px solid ${theme.colors.textGray};
   @media (max-width: ${breakpoints.mobile}) {
@@ -15,23 +15,30 @@ const buttonBase = css`
   }
 `;
 
-export const DropdownButton = styled.button<{ isMargin?: boolean }>`
-  ${buttonBase}
+export const DropdownButton = styled.button<{
+  isMargin?: boolean;
+  disabled: boolean;
+}>`
+  ${({ disabled }) => buttonBase({ disabled })};
   ${flexMixins.flexRowCenter}
   svg {
     margin-left: 8px;
   }
-  ${(props) =>
-    props.isMargin &&
+  ${({ isMargin }) =>
+    isMargin &&
     css`
-      margin-left: 16px; /* Add space from the second button */
+      margin-left: 16px;
     `}
 `;
 
+export const ButtonText = styled.div`
+  color: ${theme.colors.textGrayDark};
+`;
 
-export const ButtonText = styled.div``;
-
-export const DropdownContent = styled.div<{ isOpen: boolean; sameWidth: boolean }>`
+export const DropdownContent = styled.div<{
+  isOpen: boolean;
+  sameWidth: boolean;
+}>`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
   background-color: white;

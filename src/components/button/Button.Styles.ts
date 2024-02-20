@@ -10,16 +10,16 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   font-weight: bold;
   transition: all 0.3s ease;
   width: fit-content; /* Set width to fit content */
-  
+
   /* Variant styles */
   ${({ variant }) => {
     switch (variant) {
-      case 'primary':
+      case "primary":
         return `
           background-color: ${theme.colors.primary};
           color: ${theme.colors.secondary};
         `;
-      case 'secondary':
+      case "secondary":
         return `
           background-color: ${theme.colors.secondary};
           color: ${theme.colors.primary};
@@ -36,12 +36,12 @@ export const ButtonWrapper = styled.button<ButtonProps>`
   /* Size styles */
   ${({ size }) => {
     switch (size) {
-      case 'small':
+      case "small":
         return `
          padding: 10px 30px;
           font-size: 12px;
         `;
-      case 'large':
+      case "large":
         return `
           padding: 10px 20px;
           font-size: 18px;

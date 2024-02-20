@@ -14,7 +14,8 @@ max-width: 1140px;
     margin-left: 16px;
   }
   `;
-  export const PageSection = styled.div``
+  export const PageSection = styled.div`
+  margin-top: 32px;`
 
 export const DropDownContainer = styled.div<{ spacing?: string }>`
   display: flex;

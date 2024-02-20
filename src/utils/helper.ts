@@ -1,4 +1,4 @@
-export const calculateAge = (dateAdded: string) => {
+export const calculateAge = (dateAdded: any) => {
   const today = new Date();
   const addedDate = new Date(dateAdded);
   const diff = today.getTime() - addedDate.getTime();

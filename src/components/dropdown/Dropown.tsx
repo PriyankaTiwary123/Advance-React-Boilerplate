@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../appStore";
 import { ChevronDown } from "../../public/Icons/ChevronDownIcon";
-import { setFilteredPetsOnDropdown } from "../../store/slices/fuzzySearchSlice";
+import {
+  setFilteredPets,
+  setFilteredPetsOnDropdown,
+} from "../../store/slices/fuzzySearchSlice";
 import theme from "../../styles/theme";
 import { Pet } from "../types/pet";
 import * as style from "./Dropdown.styles";
@@ -16,7 +19,7 @@ interface DropDownProps {
 const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const { filteredPets, pets } = useSelector(
+  const { filteredPets } = useSelector(
     (state: RootState) => state.useFuzzySearch
   );
 
@@ -25,8 +28,24 @@ const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
   );
   const speciesList: string[] = Array.from(speciesSet);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const handleSorting = () => {
+    const sortedPets = [...filteredPets].sort((a: Pet, b: Pet) => {
+      // Ensure that dateAdded is defined before attempting to convert it to a Date object
+      const dateA = a.dateAdded ? new Date(a.dateAdded) : null;
+      const dateB = b.dateAdded ? new Date(b.dateAdded) : null;
+
+      if (dateA && dateB) {
+        return dateB.getTime() - dateA.getTime();
+      }
+
+      // Handle case where dateAdded is undefined
+      return 0;
+    });
+    dispatch(setFilteredPets(sortedPets));
+  };
+
+  const onHandleFilterClick = (isChevron: boolean) => {
+    isChevron ? setIsOpen(!isOpen) : handleSorting();
   };
 
   const handleOptionClick = (species: string) => {
@@ -36,11 +55,15 @@ const Dropdown: React.FC<DropDownProps> = ({ label, isChevron }) => {
 
   return (
     <>
-      <style.DropdownButton isMargin onClick={toggleDropdown}>
+      <style.DropdownButton
+        isMargin
+        onClick={() => onHandleFilterClick(isChevron)}
+        disabled={filteredPets.length === 0}
+      >
         <style.ButtonText>{label}</style.ButtonText>
         {isChevron && <ChevronDown color={theme.colors.textGrayDark} />}
       </style.DropdownButton>
-      {isChevron && speciesList && (
+      {isChevron && speciesList.length > 0 && (
         <style.DropdownContent isOpen={isOpen} sameWidth={isOpen}>
           {speciesList.map((species: string, index: number) => (
             <style.DropdownOption

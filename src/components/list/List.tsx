@@ -5,11 +5,11 @@ import * as style from "./List.styles";
 
 interface ListProps {
   inputValue: string;
-  filteredPets: Pet [];
+  filteredPets: Pet[];
   noResultsFound: boolean;
   focusedIndex: number | null;
   isShowFilteredList: boolean;
-  listRef: React.RefObject<HTMLUListElement>; // Define listRef prop
+  listRef: React.RefObject<HTMLUListElement>;
 }
 
 const List: React.FC<ListProps> = ({
@@ -48,10 +48,10 @@ const List: React.FC<ListProps> = ({
 
   // Determine the role based on the isShowFilteredList prop
   const role = isShowFilteredList ? "listitem" : "option";
-  console.log(noResultsFound, 'noResultsFound');
+  console.log(noResultsFound, "noResultsFound");
   return (
     <>
-    <p>{noResultsFound && 'No Result Found'}</p>
+      <p>{noResultsFound && "No Result Found"}</p>
       {/* Filtered list */}
       <style.FilteredList
         isShowFilteredList={isShowFilteredList}

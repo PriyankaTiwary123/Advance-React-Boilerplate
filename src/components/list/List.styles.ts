@@ -27,10 +27,10 @@ export const ListItem = styled.li<{ focusedIndex?: boolean }>`
   cursor: pointer;
   line-height: 0.5;
   background: ${({ focusedIndex }) =>
-  focusedIndex ? theme.colors.textGrayLight : "transparent"};
+    focusedIndex ? theme.colors.textGrayLight : "transparent"};
   color: ${theme.colors.textGrayDark};
   border-top: 1px solid ${theme.colors.textGray};
-  margin:16px;
+  margin: 16px;
   &:last-child {
     border-bottom: none;
   }

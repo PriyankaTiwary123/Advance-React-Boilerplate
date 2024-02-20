@@ -5,13 +5,6 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    // Set the default
-    "editor.formatOnSave": false,
-    // Enable per-language
-    "[javascript]": {
-      "editor.formatOnSave": true
-    },
-
     /* Bundler mode */
     "moduleResolution": "node",
     "resolveJsonModule": true,
