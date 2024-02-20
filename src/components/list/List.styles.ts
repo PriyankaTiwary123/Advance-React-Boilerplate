@@ -11,9 +11,11 @@ export const FilteredList = styled.ul<{ isShowFilteredList: boolean }>`
   overflow-y: auto;
   box-sizing: border-box;
   background-color: ${theme.colors.primary};
+  border-top: none;
   padding: 0;
-  border: 1px solid ${({ isShowFilteredList }) =>
-    isShowFilteredList ? theme.colors.secondary : theme.colors.primary};
+  border-left: 1px solid ${theme.colors.secondary};
+  border-right: 1px solid ${theme.colors.secondary};
+  border-bottom: 1px solid ${theme.colors.secondary};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   list-style-type: none;
@@ -27,7 +29,8 @@ export const ListItem = styled.li<{ focusedIndex?: boolean }>`
   background: ${({ focusedIndex }) =>
   focusedIndex ? theme.colors.textGrayLight : "transparent"};
   color: ${theme.colors.textGrayDark};
-  border-bottom: 1px solid ${theme.colors.textGray};
+  border-top: 1px solid ${theme.colors.textGray};
+  margin:16px;
   &:last-child {
     border-bottom: none;
   }

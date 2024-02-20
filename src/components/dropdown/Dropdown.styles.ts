@@ -31,14 +31,15 @@ export const DropdownButton = styled.button<{ isMargin?: boolean }>`
 
 export const ButtonText = styled.div``;
 
-export const DropdownContent = styled.div`
-display: ${(props: { isOpen: boolean }) => (props.isOpen ? "block" : "none")};
+export const DropdownContent = styled.div<{ isOpen: boolean; sameWidth: boolean }>`
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 10px 20px;
+  border: 1px solid ${theme.colors.textGrayLight};
+  margin-left: 12px;
+  margin-top: 36px;
   z-index: 1;
-  border-radius: 20px;
 `;
 
 export const DropdownOption = styled.a`

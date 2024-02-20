@@ -1,4 +1,3 @@
-// useFuzzySearchSlice.js
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Pet } from '../../components/types/pet';
 
@@ -7,7 +6,10 @@ interface UseFuzzySearchState {
   error: string | null;
   inputValue: string;
   filteredPets: Pet[];
-  isShowFilteredList: boolean
+  filteredPetsonDropDown: Pet[];
+  isShowFilteredList: boolean;
+  filterSource: 'search' | 'dropdown' | null;
+  noResultsFound: boolean; // Flag to indicate if no results were found
 }
 
 const initialState: UseFuzzySearchState = {
@@ -15,7 +17,10 @@ const initialState: UseFuzzySearchState = {
   error: null,
   inputValue: '',
   filteredPets: [],
-  isShowFilteredList: false
+  filteredPetsonDropDown: [],
+  isShowFilteredList: false,
+  filterSource: null,
+  noResultsFound: false, // Initialize the flag to false
 };
 
 export const useFuzzySearchSlice = createSlice({
@@ -33,12 +38,28 @@ export const useFuzzySearchSlice = createSlice({
     },
     setFilteredPets: (state, action: PayloadAction<Pet[]>) => {
       state.filteredPets = action.payload;
+      state.filterSource = 'search';
+      state.noResultsFound = action.payload.length === 0; // Set flag based on filteredPets length
     },
-    setShowFiltered: (state, action: PayloadAction<boolean>)=>{
-      state.isShowFilteredList=action.payload
-    }
+    setShowFiltered: (state, action: PayloadAction<boolean>) => {
+      state.isShowFilteredList = action.payload;
+    },
+    setFilteredPetsOnDropdown: (state, action: PayloadAction<string>) => {
+      const species = action.payload;
+      state.filteredPetsonDropDown = state.filteredPets.filter((pet) => pet.species === species);
+      state.filterSource = 'dropdown';
+      state.noResultsFound = state.filteredPets.length === 0; // Set flag based on filteredPets length
+    },
   },
 });
 
-export const { setPets, setError, setInputValue, setFilteredPets, setShowFiltered } = useFuzzySearchSlice.actions;
+export const {
+  setPets,
+  setError,
+  setInputValue,
+  setFilteredPets,
+  setShowFiltered,
+  setFilteredPetsOnDropdown,
+} = useFuzzySearchSlice.actions;
+
 export default useFuzzySearchSlice.reducer;

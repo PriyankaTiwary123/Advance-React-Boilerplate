@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { RootState } from "../../../appStore";
 import { Button } from "../../../components/button/Button";
 import { Pet } from "../../../components/types/pet";
-import { ArrowRighIcon } from "../../../public/ArrowRight";
+import { ArrowRighIcon } from "../../../public/Icons/ArrowRightIcon";
 import breakpoints from "../../../styles/breakpoints";
 import theme from "../../../styles/theme";
 import * as style from './Results.styles';
@@ -13,9 +13,11 @@ const Results: React.FC = () => {
   const navigate = useNavigate();
 
   const [ismobile, setismobile] = useState<boolean>(false);
-  const { filteredPets } = useSelector(
+  const { filteredPets, filterSource, filteredPetsonDropDown } = useSelector(
     (state: RootState) => state.useFuzzySearch
   );
+
+  console.log(filteredPetsonDropDown, 'filteredPetsonDropDown')
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,10 +33,11 @@ const Results: React.FC = () => {
   const redirectToPetDetails = (petId: string) => {
     navigate(`/pet-details/${petId}`);
   }
+  const filteredData = filterSource==='dropdown'? filteredPetsonDropDown : filteredPets
 
   return (
     <style.ResultsContainer>
-      {filteredPets?.map((pet: Pet) => (
+      {filteredData?.map((pet: Pet) => (
         <style.PetContent key={pet.id} ismobile={ismobile}>
           <style.PetAvatar
             src={pet.photoUrl}

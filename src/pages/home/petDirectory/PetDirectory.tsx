@@ -1,5 +1,5 @@
 import { Button } from "../../../components/button/Button";
-import { ArrowRighIcon } from "../../../public/ArrowRight";
+import { ArrowRighIcon } from "../../../public/Icons/ArrowRightIcon";
 import theme from "../../../styles/theme";
 import * as styles from "./PetDirectory.styles";
 

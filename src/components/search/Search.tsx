@@ -13,7 +13,7 @@ const Search: React.FC = () => {
   const { handleKeyDown, focusedIndex } = useKeyEvent();
 
   // Redux state
-  const { inputValue, filteredPets, isShowFilteredList } = useSelector(
+  const { inputValue, filteredPets, isShowFilteredList, noResultsFound } = useSelector(
     (state: RootState) => state.useFuzzySearch
   );
 
@@ -46,6 +46,7 @@ const Search: React.FC = () => {
             <List
               inputValue={inputValue}
               filteredPets={filteredPets}
+              noResultsFound={noResultsFound}
               focusedIndex={focusedIndex}
               isShowFilteredList={isShowFilteredList}
               listRef={listRef}

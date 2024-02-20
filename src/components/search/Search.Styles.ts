@@ -50,7 +50,7 @@ export const SearchInput = styled.input<{ isShowFilteredList: boolean }>`
     border: 1px solid
       ${({ isShowFilteredList }) =>
         isShowFilteredList
-          ? theme.colors.secondary
+          ? 'none'
           : theme.colors.textGrayLight};
   }
 `;
