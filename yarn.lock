@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adobe/css-tools@^4.0.1":
-  version "4.2.0"
-  resolved "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.2.0.tgz"
-  integrity sha512-E09FiIft46CmH5Qnjb0wsW54/YQd69LsxeKUOWawmws1XWvyFGURnAChH0mlr7YPFR1ofwvUQfcL0J3lMxXqPA==
+"@adobe/css-tools@^4.3.2":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.3.tgz#90749bde8b89cd41764224f5aac29cd4138f75ff"
+  integrity sha512-rE0Pygv0sEZ4vBWHlAgJLGDU7Pm8xoO6p3wsEceb7GYAjScrOHpEo8KK/eVkAcnSM+slAEtXjA2JpdjLp4fJQQ==
 
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
@@ -1026,18 +1026,17 @@
     lz-string "^1.5.0"
     pretty-format "^27.0.2"
 
-"@testing-library/jest-dom@^5.16.5":
-  version "5.16.5"
-  resolved "https://registry.npmjs.org/@testing-library/jest-dom/-/jest-dom-5.16.5.tgz"
-  integrity sha512-N5ixQ2qKpi5OLYfwQmUb/5mSV9LneAcaUfp32pn4yCnpb8r/Yz0pXFPck21dIicKmi+ta5WRAknkZCfA8refMA==
+"@testing-library/jest-dom@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.4.2.tgz#38949f6b63722900e2d75ba3c6d9bf8cffb3300e"
+  integrity sha512-CzqH0AFymEMG48CpzXFriYYkOjk6ZGPCLMhW9e9jg3KMCn5OfJecF8GtGW7yGfR/IgCe3SX8BSwjdzI6BBbZLw==
   dependencies:
-    "@adobe/css-tools" "^4.0.1"
+    "@adobe/css-tools" "^4.3.2"
     "@babel/runtime" "^7.9.2"
-    "@types/testing-library__jest-dom" "^5.9.1"
     aria-query "^5.0.0"
     chalk "^3.0.0"
     css.escape "^1.5.1"
-    dom-accessibility-api "^0.5.6"
+    dom-accessibility-api "^0.6.3"
     lodash "^4.17.15"
     redent "^3.0.0"
 
@@ -1141,14 +1140,6 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
-  version "29.5.6"
-  resolved "https://registry.npmjs.org/@types/jest/-/jest-29.5.6.tgz"
-  integrity sha512-/t9NnzkOpXb4Nfvg17ieHE6EeSjDS2SGSpNYfoLbUAeL/EOueU/RSdOWFpfQTXBEM7BguYW1XQ0EbM+6RlIh6w==
-  dependencies:
-    expect "^29.0.0"
-    pretty-format "^29.0.0"
-
 "@types/jest@^29.5.12":
   version "29.5.12"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.12.tgz#7f7dc6eb4cf246d2474ed78744b05d06ce025544"
@@ -1209,13 +1200,6 @@
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@types/stylis/-/stylis-4.2.0.tgz#199a3f473f0c3a6f6e4e1b17cdbc967f274bdc6b"
   integrity sha512-n4sx2bqL0mW1tvDf/loQ+aMX7GQD3lc3fkCMC55VFNDu/vBOabO+LTIeXKM14xK0ppk5TUGcWRjiSpIlUpghKw==
-
-"@types/testing-library__jest-dom@^5.9.1":
-  version "5.14.6"
-  resolved "https://registry.npmjs.org/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.14.6.tgz"
-  integrity sha512-FkHXCb+ikSoUP4Y4rOslzTdX5sqYwMxfefKh1GmZ8ce1GOkEHntSp6b5cGadmNfp5e4BMEWOMx+WSKd5/MqlDA==
-  dependencies:
-    "@types/jest" "*"
 
 "@types/use-sync-external-store@^0.0.3":
   version "0.0.3"
@@ -2008,10 +1992,15 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-accessibility-api@^0.5.6, dom-accessibility-api@^0.5.9:
+dom-accessibility-api@^0.5.9:
   version "0.5.16"
   resolved "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz"
   integrity sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==
+
+dom-accessibility-api@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.6.3.tgz#993e925cc1d73f2c662e7d75dd5a5445259a8fd8"
+  integrity sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==
 
 domexception@^4.0.0:
   version "4.0.0"

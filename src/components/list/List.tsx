@@ -51,7 +51,6 @@ const List: React.FC<ListProps> = ({
   console.log(noResultsFound, "noResultsFound");
   return (
     <>
-      <p>{noResultsFound && "No Result Found"}</p>
       {/* Filtered list */}
       <style.FilteredList
         isShowFilteredList={isShowFilteredList}
